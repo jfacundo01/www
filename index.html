@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site responsivo com menu suspenso, footer moderno e design interativo.">
+    <title>Viagem MZ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Barra Superior com Botão de Sanduíche -->
+        <div class="top-bar" id="topBar">
+            <span class="menu-toggle hamburger" aria-label="Abrir menu" aria-expanded="false"></span>
+        </div>
+
+        <!-- Barra de Menu Lateral/Suspenso -->
+        <nav class="sidebar" id="sidebar" aria-label="Menu lateral">
+            <ul>
+                <li><a href="#inicio">INICIO</a></li>
+                <li><a href="#sobre">SOBRE</a></li>
+                <li><a href="#viagens">VIAGENS</a></li>
+                <li><a href="#contato">CONTATO</a></li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <!-- Seção Sobre -->
+            <section id="sobre" class="box">
+                <h1>Sobre Nós</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptas nemo vitae assumenda earum deleniti mollitia vero repellendus dolor. Alias, laborum nobis! Vitae aliquam quia officiis doloremque adipisci in expedita?.</p>
+            </section>
+
+            <!-- Seção Motivos -->
+            <section id="motivos" class="box motivos">
+                <h1>Por que viajar com a Viagem MZ?</h1>
+                <p>O <span>ViagemMZ</span> está há 3 anos em pleno funcionamento, entregando as melhores viagens e o melhor atendimento</p>
+
+                <div class="viagem-box">
+                    <img src="images/verificacao-de-escudo.svg" class="icons" alt="shield">
+                    <p>A ViagemMZ é uma empresa iguaçuense que atua no desenvolvimento do turismo local agindo de forma responsável e segura.</p>
+                </div>
+                <div class="viagem-box">
+                    <img src="images/smartphone-de-reserva.svg" class="icons" alt="phone">
+                    <p>Você pode reservar via WhatsApp, e-mail, telefone ou redes sociais. Escolha a forma que vais lhe convém.</p>
+                </div>
+                <div class="viagem-box">
+                    <img src="images/carteira.svg" class="icons" alt="wallet">
+                    <p>Aqui você tem os melhores preços com a garantia que pode parcelar suas viagens no cartão de crédito, boleto e no pix.</p>
+                </div>
+            </section>
+
+            <!-- Seção Destinos -->
+            <section id="viagens" class="box">
+                <h1>Próximos Destinos</h1>
+                <div class="viagens-container">
+                    <div class="viagem-box">
+                        <img src="https://th.bing.com/th/id/OIP.xM2slR9U2WiTk-8ad9PLbgAAAA?w=150&h=150&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Viagem para Paris">
+                        <h2>BEBERIBE</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam labore in magni nobis nesciunt nemo sit distinctio non dignissimos reiciendis asperio</p>
+                        <button class="reserva-btn" onclick="window.open('https://forms.gle/oH36aLekP6izbSBi8', '_blank')">Pré-reserva</button>
+                    </div>
+                    <div class="viagem-box">
+                        <img src="https://th.bing.com/th/id/OIP.xM2slR9U2WiTk-8ad9PLbgAAAA?w=150&h=150&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Viagem para Nova York">
+                        <h3>CANOA QUEBRADA</h3>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam labore in magni nobis nesciunt nemo sit distinctio non dignissimos reiciendis asperio</p>
+                        <button class="reserva-btn">Pré-reservar</button>
+                    </div>
+                    <div class="viagem-box">
+                        <img src="https://th.bing.com/th/id/OIP.xM2slR9U2WiTk-8ad9PLbgAAAA?w=150&h=150&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Viagem para Tóquio">
+                        <h2>MARAGOGI</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam labore in magni nobis nesciunt nemo sit distinctio non dignissimos reiciendis asperio</p>
+                        <button class="reserva-btn">Pré-reservar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Destaques -->
+<section id="destaques" class="box">
+    <h1>Destaques</h1>
+    <p>Acompanhe aqui como foram algumas de nossas melhores viagens.</p>
+    <div class="destaques-container">
+        <!-- Destaque 1 -->
+        <div class="destaque-box">
+           
+            <h3>Revéillon Fortaleza 2025</h3>
+             <!-- <img src="https://via.placeholder.com/300x150" alt="Revéillon Fortaleza 2025"> -->
+            <p>Uma viagem incrível para celebrar o Ano Novo em uma das praias mais bonitas do Brasil.</p>
+            <button class="btn-saiba-mais">Saiba Mais</button>
+        </div>
+        <!-- Destaque 2 -->
+        <div class="destaque-box">
+            <!-- <img src="https://via.placeholder.com/300x150" alt="Carnaval 2025"> -->
+            <h3>Carnaval 2025</h3>
+            <p>Viva a energia do Carnaval em Salvador, com blocos, música e muita diversão.</p>
+            <button class="btn-saiba-mais">Saiba Mais</button>
+        </div>
+    </div>
+</section>
+
+            <!-- Seção Feedback Moderna -->
+            <section id="feedback" class="box">
+                <h1>Feedback</h1>
+                <p>Confira os Feedbacks dos nossos clientes.</p>
+                <div class="feedback-container">
+                    <div class="feedback-box">
+                        <img src="https://via.placeholder.com/50" alt="Cliente 1">
+                        <div class="feedback-content">
+                            <h3>Nome Cliente</h3>
+                            <p>Mensagem: Adorei a viagem! Tudo foi perfeito, desde o atendimento até os destinos.</p>
+                        </div>
+                    </div>
+                    <div class="feedback-box">
+                        <img src="https://via.placeholder.com/50" alt="Cliente 2">
+                        <div class="feedback-content">
+                            <h3>Nome Cliente</h3>
+                            <p>Mensagem: Experiência incrível! Recomendo a Viagem MZ para todos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#viagens">Viagens</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Inscreva-se para receber nossas novidades.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Seu e-mail" required>
+                        <button type="submit">Inscrever</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Viagem MZ. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript para o Menu Responsivo -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const topBar = document.getElementById('topBar');
+        const menuLinks = document.querySelectorAll('.sidebar ul li a');
+
+        menuToggle.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+                menuToggle.setAttribute('aria-expanded', !isExpanded);
+                sidebar.classList.toggle('active');
+                topBar.classList.toggle('hidden');
+            }
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    sidebar.classList.remove('active');
+                    topBar.classList.remove('hidden');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+                topBar.classList.remove('hidden');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            if (emailInput.value) {
+                alert(`Obrigado por se inscrever! Você receberá novidades no e-mail: ${emailInput.value}`);
+                emailInput.value = '';
+            } else {
+                alert('Por favor, insira um e-mail válido.');
+            }
+        });
+    </script>
+</body>
+
+</html>
