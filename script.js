@@ -1,29 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Seletores de elementos principais
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.navbar nav ul');
-    const contactForm = document.querySelector('.contact-form');
-    
+    const contactForm = document.querySelector('.newsletter-form'); // Corrigido para newsletter-form no footer
+
     // --- Funcionalidade do Menu Hambúrguer ---
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    // Fechar o menu ao clicar em um link (melhora a UX em mobile)
-    document.querySelectorAll('.navbar nav ul li a').forEach(item => {
-        item.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-    });
 
-    // --- Validação do Formulário de Contato ---
-    if (contactForm) { // Verifica se o formulário existe na página
+        // Fechar o menu ao clicar em um link (melhora a UX em mobile)
+        document.querySelectorAll('.navbar nav ul li a').forEach(item => {
+            item.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    }
+
+    // --- Validação do Formulário de Newsletter (Antigo Formulário de Contato) ---
+    // A seção de "contato" não existe mais no HTML, então renomeei para refletir a newsletter.
+    if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
+            event.preventDefault(); // Impede o envio padrão do formulário
 
+            const nameInput = document.getElementById('newsletter-name');
+            const emailInput = document.getElementById('newsletter-email');
+            
             let isValid = true;
 
             // Validação do campo Nome
@@ -31,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Por favor, preencha o seu nome.');
                 nameInput.focus();
                 isValid = false;
-            } 
-            // Validação do campo Email (simples, apenas verifica se está vazio e formato básico)
+            }
+            // Validação do campo Email
             else if (emailInput.value.trim() === '') {
                 alert('Por favor, preencha o seu email.');
                 emailInput.focus();
@@ -42,60 +47,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 emailInput.focus();
                 isValid = false;
             }
-            // Validação do campo Mensagem
-            else if (messageInput.value.trim() === '') {
-                alert('Por favor, escreva sua mensagem.');
-                messageInput.focus();
-                isValid = false;
-            }
 
-            if (!isValid) {
-                event.preventDefault(); // Impede o envio do formulário se a validação falhar
-            } else {
-                // Se a validação passar, você pode enviar o formulário aqui (AJAX, fetch, etc.)
-                alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
+            if (isValid) {
+                // Se a validação passar, você pode processar o formulário aqui (AJAX, fetch, etc.)
+                alert('Cadastro realizado com sucesso! Você receberá nossos novos pacotes.');
                 contactForm.reset(); // Limpa o formulário
-                event.preventDefault(); // Impede o envio real do formulário (para demonstração)
+                // Aqui você enviaria os dados para um servidor, por exemplo:
+                // fetch('/caminho-do-seu-backend/newsletter-signup', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //     },
+                //     body: JSON.stringify({
+                //         name: nameInput.value,
+                //         email: emailInput.value
+                //     })
+                // })
+                // .then(response => response.json())
+                // .then(data => console.log(data))
+                // .catch(error => console.error('Erro:', error));
             }
         });
     }
 
-    // --- Funcionalidade: Detalhes do Pacote (Flip Card) ---
-    const packageDetailsToggles = document.querySelectorAll('.package-details-toggle');
-    const closeDetailsButtons = document.querySelectorAll('.close-details-btn');
-
-    packageDetailsToggles.forEach(toggleButton => {
-        toggleButton.addEventListener('click', function(event) {
-            event.preventDefault(); // Impede o comportamento padrão do link (#)
-            const card = this.closest('.destination-card'); // Encontra o card pai (o que foi clicado)
-            
-            // Primeiro, vamos FECHAR todos os outros cards que estejam virados
-            document.querySelectorAll('.destination-card').forEach(otherCard => {
-                // Se o outro card estiver ativo (virado) e não for o card clicado
-                if (otherCard !== card && otherCard.classList.contains('active')) {
-                    otherCard.classList.remove('active'); // Desvira o outro card
-                }
-            });
-
-            // Agora, alterna a classe 'active' no cartão CLICADO
-            // Isso fará com que o .card-inner dentro dele vire/desvire via CSS
-            card.classList.toggle('active'); 
-            
-            // Opcional: Rola para o cartão para que o usuário veja os detalhes quando ele se abre
-            if (card.classList.contains('active')) { // Se o card estiver ativo (virado)
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-        });
-    });
-
-    closeDetailsButtons.forEach(closeButton => {
-        closeButton.addEventListener('click', function() {
-            const card = this.closest('.destination-card'); // Encontra o cartão pai
-            if (card) {
-                card.classList.remove('active'); // Garante que a classe 'active' é removida ao fechar
-            }
-        });
-    });
 
     // --- Lógica do Carrossel de Feedback ---
     const feedbackCards = document.querySelectorAll('.feedback-card');
@@ -104,18 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentFeedbackIndex = 0;
 
     function showFeedback(index) {
-        // Oculta todos os cards
+        // Oculta todos os cards movendo-os para fora da vista
         feedbackCards.forEach(card => {
             card.classList.remove('active');
-            card.style.transform = `translateX(${100 * (index - currentFeedbackIndex)}%)`; // Move para fora da vista
-            card.style.position = 'absolute'; // Garante que não ocupem espaço
+            card.style.transform = `translateX(${100 * (index - currentFeedbackIndex)}%)`;
+            card.style.position = 'absolute';
+            card.style.opacity = '0'; // Adiciona transição de opacidade para um efeito mais suave
+            card.style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out'; // Transição para opacidade
         });
 
-        // Mostra o card atual e o centraliza
+        // Mostra o card atual, centraliza e torna visível
         if (feedbackCards[index]) {
             feedbackCards[index].classList.add('active');
             feedbackCards[index].style.transform = 'translateX(0)';
-            feedbackCards[index].style.position = 'relative'; // O card ativo ocupa espaço
+            feedbackCards[index].style.position = 'relative';
+            feedbackCards[index].style.opacity = '1';
+            feedbackCards[index].style.transition = 'transform 0.5s ease-in-out, opacity 0.5s ease-in-out';
         }
         currentFeedbackIndex = index;
     }
@@ -143,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Iniciar o carrossel mostrando o primeiro feedback
     if (feedbackCards.length > 0) {
-        showFeedback(0);
+        showFeedback(0); // Exibe o primeiro card ao carregar
     }
 
     // Opcional: Auto-slide do carrossel
@@ -159,4 +137,45 @@ document.addEventListener('DOMContentLoaded', () => {
             autoSlideInterval = setInterval(nextFeedback, 7000);
         });
     }
+
+    // --- Script para o efeito flip card (destinos e festas) ---
+    // Função para adicionar ou remover a classe 'active' ao clicar
+    function setupFlipCard(cardSelector, viewBtnSelector, closeBtnSelector) {
+        document.querySelectorAll(cardSelector).forEach(card => {
+            const viewBtn = card.querySelector(viewBtnSelector);
+            const closeBtn = card.querySelector(closeBtnSelector);
+
+            if (viewBtn) {
+                viewBtn.addEventListener('click', function(event) {
+                    event.preventDefault(); // Impede o link de navegar
+
+                    // Fechar todos os outros cards que estejam abertos (tanto destinos quanto festas)
+                    document.querySelectorAll('.destination-card.active, .party-card.active').forEach(otherCard => {
+                        if (otherCard !== card) { // Garante que não estamos fechando o próprio card que foi clicado
+                            otherCard.classList.remove('active'); // Remove a classe 'active' para desvirar
+                        }
+                    });
+
+                    card.classList.add('active'); // Adiciona a classe para virar o card clicado
+                    // Opcional: Rola para o cartão para que o usuário veja os detalhes quando ele se abre
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            }
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(event) {
+                    event.preventDefault(); // Impede o link de navegar
+                    card.classList.remove('active'); // Remove a classe para desvirar o card
+                });
+            }
+        });
+    }
+
+    // Aplica a função para os cards de destino
+    // O seletor para o botão de "ver detalhes" nos destinos é '.package-details-toggle'
+    setupFlipCard('.destination-card', '.package-details-toggle', '.close-details-btn');
+
+    // Aplica a função para os cards de festa
+    // O seletor para o botão de "ver detalhes" nas festas é '.view-details-btn'
+    setupFlipCard('.party-card', '.view-details-btn', '.close-details-btn');
 });
