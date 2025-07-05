@@ -4,211 +4,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site responsivo com menu suspenso, footer moderno e design interativo.">
-    <title>Viagem MZ</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+    <title>VIAGEM MZ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bd2db58d65.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Barra Superior com Botão de Sanduíche -->
-        <div class="top-bar" id="topBar">
-            <span class="menu-toggle hamburger" aria-label="Abrir menu" aria-expanded="false"></span>
-        </div>
 
-        <!-- Barra de Menu Lateral/Suspenso -->
-        <nav class="sidebar" id="sidebar" aria-label="Menu lateral">
-            <ul>
-                <li><a href="#inicio">INICIO</a></li>
-                <li><a href="#sobre">SOBRE</a></li>
-                <li><a href="#viagens">VIAGENS</a></li>
-                <li><a href="#contato">CONTATO</a></li>
-            </ul>
-        </nav>
-
-        <!-- Conteúdo Principal -->
-        <main class="content">
-            <!-- Seção Sobre -->
-            <section id="sobre" class="box">
-                <h1>Sobre Nós</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores voluptas nemo vitae assumenda earum deleniti mollitia vero repellendus dolor. Alias, laborum nobis! Vitae aliquam quia officiis doloremque adipisci in expedita?.</p>
-            </section>
-
-            <!-- Seção Motivos -->
-            <section id="motivos" class="box motivos">
-                <h1>Por que viajar com a Viagem MZ?</h1>
-                <p>O <span>ViagemMZ</span> está há 3 anos em pleno funcionamento, entregando as melhores viagens e o melhor atendimento</p>
-
-                <div class="viagem-box">
-                    <img src="images/verificacao-de-escudo.svg" class="icons" alt="shield">
-                    <p>A ViagemMZ é uma empresa iguaçuense que atua no desenvolvimento do turismo local agindo de forma responsável e segura.</p>
-                </div>
-                <div class="viagem-box">
-                    <img src="images/smartphone-de-reserva.svg" class="icons" alt="phone">
-                    <p>Você pode reservar via WhatsApp, e-mail, telefone ou redes sociais. Escolha a forma que vais lhe convém.</p>
-                </div>
-                <div class="viagem-box">
-                    <img src="images/carteira.svg" class="icons" alt="wallet">
-                    <p>Aqui você tem os melhores preços com a garantia que pode parcelar suas viagens no cartão de crédito, boleto e no pix.</p>
-                </div>
-            </section>
-
-            <!-- Seção Destinos -->
-            <section id="viagens" class="box">
-                <h1>Próximos Destinos</h1>
-                <div class="viagens-container">
-                    <div class="viagem-box">
-                        <img src="https://th.bing.com/th/id/OIP.xM2slR9U2WiTk-8ad9PLbgAAAA?w=150&h=150&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Viagem para Paris">
-                        <h2>BEBERIBE</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam labore in magni nobis nesciunt nemo sit distinctio non dignissimos reiciendis asperio</p>
-                        <button class="reserva-btn" onclick="window.open('https://forms.gle/oH36aLekP6izbSBi8', '_blank')">Pré-reserva</button>
-                    </div>
-                    <div class="viagem-box">
-                        <img src="https://th.bing.com/th/id/OIP.xM2slR9U2WiTk-8ad9PLbgAAAA?w=150&h=150&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Viagem para Nova York">
-                        <h3>CANOA QUEBRADA</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam labore in magni nobis nesciunt nemo sit distinctio non dignissimos reiciendis asperio</p>
-                        <button class="reserva-btn">Pré-reservar</button>
-                    </div>
-                    <div class="viagem-box">
-                        <img src="https://th.bing.com/th/id/OIP.xM2slR9U2WiTk-8ad9PLbgAAAA?w=150&h=150&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Viagem para Tóquio">
-                        <h2>MARAGOGI</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam labore in magni nobis nesciunt nemo sit distinctio non dignissimos reiciendis asperio</p>
-                        <button class="reserva-btn">Pré-reservar</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Seção Destaques -->
-<section id="destaques" class="box">
-    <h1>Destaques</h1>
-    <p>Acompanhe aqui como foram algumas de nossas melhores viagens.</p>
-    <div class="destaques-container">
-        <!-- Destaque 1 -->
-        <div class="destaque-box">
-           
-            <h3>Revéillon Fortaleza 2025</h3>
-             <!-- <img src="https://via.placeholder.com/300x150" alt="Revéillon Fortaleza 2025"> -->
-            <p>Uma viagem incrível para celebrar o Ano Novo em uma das praias mais bonitas do Brasil.</p>
-            <button class="btn-saiba-mais">Saiba Mais</button>
-        </div>
-        <!-- Destaque 2 -->
-        <div class="destaque-box">
-            <!-- <img src="https://via.placeholder.com/300x150" alt="Carnaval 2025"> -->
-            <h3>Carnaval 2025</h3>
-            <p>Viva a energia do Carnaval em Salvador, com blocos, música e muita diversão.</p>
-            <button class="btn-saiba-mais">Saiba Mais</button>
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span>Reservas:</span>
+                <span><i class="fas fa-phone-alt"></i>+55 83 8195-2443</span>
+                <span>|</span>
+                <span><i class="fab fa-whatsapp"></i> WhatsApp</span>
+            </div>
+            <div class="social-media">
+                <span>Redes sociais:</span>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </div>
-</section>
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">
+                <span><img src="images/logo.png" alt="Logo VMZ Turismo"></span>
+                VMZ Turismo
+            </h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#destinos">Destinos</a></li>
+                    <li><a href="#festas">Festas</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
 
-            <!-- Seção Feedback Moderna -->
-            <section id="feedback" class="box">
-                <h1>Feedback</h1>
-                <p>Confira os Feedbacks dos nossos clientes.</p>
-                <div class="feedback-container">
-                    <div class="feedback-box">
-                        <img src="https://via.placeholder.com/50" alt="Cliente 1">
-                        <div class="feedback-content">
-                            <h3>Nome Cliente</h3>
-                            <p>Mensagem: Adorei a viagem! Tudo foi perfeito, desde o atendimento até os destinos.</p>
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h2>Descubra Lugares Incríveis!</h2>
+                <p>Sua jornada começa aqui. Aventuras inesquecíveis esperam por você.</p>
+                <a href="#destinos" class="btn primary-btn">Ver Destinos</a>
+            </div>
+        </section>
+
+        <section id="destinos" class="destinations-section">
+            <div class="container">
+                <h3>Nossos Destinos Populares</h3>
+                <div class="destination-grid">
+                    <div class="destination-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/image00.jpeg" alt="Praia Ensolarada">
+                                <h4>Praias Paradisíacas</h4>
+                                <p>Relaxe nas areias brancas e águas cristalinas.</p>
+                                <a href="#" class="btn secondary-btn package-details-toggle">Saiba Mais</a>
+                            </div>
+                            <div class="card-back">
+                                <h5>Detalhes do Pacote: Praias Paradisíacas</h5>
+                                <ul>
+                                    <li>7 dias e 6 noites</li>
+                                    <li>Hospedagem em resort 5 estrelas</li>
+                                    <li>Café da manhã incluso</li>
+                                    <li>Traslado aeroporto/hotel</li>
+                                    <li>Excursão de barco pelas ilhas</li>
+                                </ul>
+                                <p>Preço: A partir de R$ 2.500</p>
+                                <button class="close-details-btn btn primary-btn">Fechar</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="feedback-box">
-                        <img src="https://via.placeholder.com/50" alt="Cliente 2">
-                        <div class="feedback-content">
-                            <h3>Nome Cliente</h3>
-                            <p>Mensagem: Experiência incrível! Recomendo a Viagem MZ para todos.</p>
+
+                    <div class="destination-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/image00.jpeg" alt="Montanhas Verdes">
+                                <h4>Montanhas e Trilhas</h4>
+                                <p>Aventure-se em paisagens deslumbrantes e ar puro.</p>
+                                <a href="#" class="btn secondary-btn package-details-toggle">Saiba Mais</a>
+                            </div>
+                            <div class="card-back">
+                                <h5>Detalhes do Pacote: Montanhas e Trilhas</h5>
+                                <ul>
+                                    <li>5 dias e 4 noites</li>
+                                    <li>Pousada aconchegante</li>
+                                    <li>Guia de trilhas experiente</li>
+                                    <li>Equipamentos inclusos</li>
+                                    <li>Vista panorâmica da cachoeira</li>
+                                </ul>
+                                <p>Preço: A partir de R$ 1.800</p>
+                                <button class="close-details-btn btn primary-btn">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="destination-card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="images/image00.jpeg" alt="Cidade Antiga">
+                                <h4>Cidades Históricas</h4>
+                                <p>Explore a cultura e a história de destinos charmosos.</p>
+                                <a href="#" class="btn secondary-btn package-details-toggle">Saiba Mais</a>
+                            </div>
+                            <div class="card-back">
+                                <h5>Detalhes do Pacote: Cidades Históricas</h5>
+                                <ul>
+                                    <li>4 dias e 3 noites</li>
+                                    <li>Hotel boutique no centro histórico</li>
+                                    <li>Tour guiado pelos monumentos</li>
+                                    <li>Transporte local incluso</li>
+                                    <li>Noite de gastronomia regional</li>
+                                </ul>
+                                <p>Preço: A partir de R$ 1.200</p>
+                                <button class="close-details-btn btn primary-btn">Fechar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Links Rápidos</h3>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#viagens">Viagens</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Redes Sociais</h3>
-                    <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </section>
+        <section id="festas" class="parties-section">
+            <div class="container">
+                <h3>Festas e Eventos Especiais</h3>
+                <p>Prepare-se para viver momentos de pura alegria e diversão nos melhores eventos e festas do Brasil e
+                    do mundo!</p>
+                <div class="party-grid">
+                    <div class="party-card">
+                        <img src="images/image00.jpeg" alt="Carnaval no Rio">
+                        <h4>Carnaval no Rio de Janeiro</h4>
+                        <p>Experimente a energia contagiante do maior espetáculo da Terra com desfiles, blocos e muita
+                            folia.</p>
+                        <a href="#" class="btn secondary-btn">Ver Pacotes</a>
+                    </div>
+                    <div class="party-card">
+                        <img src="images/image00.jpeg" alt="Réveillon em Noronha">
+                        <h4>Réveillon em Fernando de Noronha</h4>
+                        <p>Celebre a virada do ano em um paraíso natural, com festas exclusivas e paisagens
+                            deslumbrantes.</p>
+                        <a href="#" class="btn secondary-btn">Ver Pacotes</a>
+                    </div>
+                    <div class="party-card">
+                        <img src="images/image00.jpeg" alt="Oktoberfest Blumenau">
+                        <h4>Oktoberfest em Blumenau</h4>
+                        <p>Desfrute da maior festa alemã das Américas com muita cerveja, música e cultura típica.</p>
+                        <a href="#" class="btn secondary-btn">Ver Pacotes</a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Newsletter</h3>
-                    <p>Inscreva-se para receber nossas novidades.</p>
+            </div>
+        </section>
+
+        <section id="feedback" class="feedback-section">
+            <div class="container">
+                <h3>O que nossos clientes dizem</h3>
+                <div class="feedback-carousel">
+                    <div class="feedback-card">
+                        <p>"A VMZ Turismo superou todas as minhas expectativas! A viagem foi incrível, tudo perfeito do
+                            início ao fim."</p>
+                        <h4>- Ana Clara S.</h4>
+                    </div>
+                    <div class="feedback-card">
+                        <p>"Profissionais atenciosos e roteiros impecáveis. Minha melhor experiência de viagem até
+                            hoje!"</p>
+                        <h4>- João Pedro F.</h4>
+                    </div>
+                    <div class="feedback-card">
+                        <p>"Recomendo a VMZ Turismo a todos! Planejamento excelente e suporte em tempo integral.
+                            Voltarei a viajar com eles!"</p>
+                        <h4>- Mariana L.</h4>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="prev-btn" aria-label="Feedback anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="next-btn" aria-label="Próximo feedback"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <h3>Sobre Nós</h3>
+                <p>Nós somos apaixonados por viagens e dedicados a criar experiências únicas para você. Com anos de
+                    experiência, garantimos que cada viagem seja inesquecível.</p>
+                <p>Nossa missão é conectar você com os destinos dos seus sonhos, oferecendo roteiros personalizados e
+                    suporte completo.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <section id="newsletter-signup" class="newsletter-section">
+                <div class="container">
+                    <h3>Cadastre-se para receber novos pacotes</h3>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Seu e-mail" required>
-                        <button type="submit">Inscrever</button>
+                        <div class="form-group">
+                            <input type="text" id="newsletter-name" name="name" placeholder="Seu Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="newsletter-email" name="email" placeholder="Seu Email" required>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Cadastrar</button>
                     </form>
                 </div>
+            </section>
+
+            <div class="payment-methods">
+                <h4>Formas de Pagamento</h4>
+                <div class="payment-icons">
+                    <i class="fab fa-pix" aria-label="Pix"></i>
+                    <i class="fab fa-cc-visa" aria-label="Visa"></i>
+                    <i class="fab fa-cc-mastercard" aria-label="Mastercard"></i>
+                    <i class="fab fa-cc-paypal" aria-label="PayPal"></i>
+                    <i class="fas fa-barcode" aria-label="Boleto Bancário"></i>
+                </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Viagem MZ. Todos os direitos reservados.</p>
-            </div>
-        </footer>
-    </div>
 
-    <!-- JavaScript para o Menu Responsivo -->
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const sidebar = document.getElementById('sidebar');
-        const topBar = document.getElementById('topBar');
-        const menuLinks = document.querySelectorAll('.sidebar ul li a');
+            <p>&copy; 2025 VMZ Turismo. Todos os direitos reservados.<span><b>Jr.DEV<></b></span>
+            </p>
+        </div>
+    </footer>
 
-        menuToggle.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-                menuToggle.setAttribute('aria-expanded', !isExpanded);
-                sidebar.classList.toggle('active');
-                topBar.classList.toggle('hidden');
-            }
-        });
-
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('active');
-                    topBar.classList.remove('hidden');
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                sidebar.classList.remove('active');
-                topBar.classList.remove('hidden');
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-            if (emailInput.value) {
-                alert(`Obrigado por se inscrever! Você receberá novidades no e-mail: ${emailInput.value}`);
-                emailInput.value = '';
-            } else {
-                alert('Por favor, insira um e-mail válido.');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,1184 @@
+/* Variáveis de Cores */
+:root {
+    --primary-blue: #163599; /* Azul vibrante */
+    --secondary-orange: #ff7f00; /* Laranja chamativo */
+    --neutral-white: #ffffff; /* Branco puro */
+    --light-gray: #f8f9fa; /* Cinza claro para fundos */
+    --dark-text: #343a40; /* Texto escuro */
+    --darker-blue: #0d2856; /* Azul mais escuro para a top bar */
+}
+
+/* Reset Básico e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-gray);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Top Bar --- */
+.top-bar {
+    background-color: var(--darker-blue);
+    color: var(--neutral-white);
+    padding: 10px 0;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.top-bar .contact-info,
+.top-bar .social-media {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.top-bar .contact-info span {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.top-bar .contact-info span:last-child {
+    margin-right: 0;
+}
+
+/* Estilo para ícones Font Awesome no contato */
+.top-bar .contact-info .fas,
+.top-bar .contact-info .fab {
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+    font-size: 16px; /* Tamanho do ícone */
+    color: var(--neutral-white); /* Cor dos ícones */
+}
+
+/* Separador vertical na top-bar */
+.top-bar .contact-info span:nth-child(3) { /* Seleciona o terceiro span que é o "|" */
+    margin-right: 15px;
+    margin-left: 5px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.top-bar .social-media span {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.top-bar .social-media a {
+    color: var(--neutral-white); /* Cor padrão dos ícones */
+    margin-left: 10px;
+    font-size: 18px; /* Tamanho dos ícones de redes sociais */
+    transition: color 0.3s ease;
+}
+
+.top-bar .social-media a:hover {
+    color: var(--secondary-orange); /* Cor no hover */
+}
+
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--secondary-orange);
+    color: var(--neutral-white);
+    border: 2px solid var(--secondary-orange);
+}
+
+.primary-btn:hover {
+    background-color: #e66b00;
+}
+
+.secondary-btn {
+    background-color: var(--primary-blue);
+    color: var(--neutral-white);
+    border: 2px solid var(--primary-blue);
+}
+
+.secondary-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-blue);
+    color: var(--neutral-white);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--neutral-white);
+}
+
+.navbar nav ul {
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+}
+
+.navbar nav ul li a {
+    color: var(--neutral-white);
+    font-weight: 400;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-orange);
+    transition: width 0.3s ease;
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1000;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--neutral-white);
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Seção Hero (Banner) */
+.hero-section {
+    background: url('images/image01.jpeg') no-repeat center center/cover;
+    color: var(--neutral-white);
+    text-align: center;
+    padding: 150px 0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section .btn {
+    z-index: 1;
+}
+
+/* Seções Gerais */
+section {
+    padding: 80px 0;
+}
+
+section h3 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary-blue);
+    position: relative;
+}
+
+section h3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-orange);
+    border-radius: 2px;
+}
+
+/* Seção de Destinos (Grid) */
+.destinations-section {
+    background-color: var(--neutral-white);
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- Estilos para o Efeito de Virar (Flip Card) --- */
+.destination-card {
+    position: relative;
+    height: 450px;
+    perspective: 1000px;
+    transition: box-shadow 0.3s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.destination-card:hover:not(.active) {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.destination-card.active {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: none;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.destination-card.active .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.card-front {
+    background-color: var(--light-gray);
+    color: var(--dark-text);
+    padding-bottom: 20px;
+}
+
+.card-front img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 5px solid var(--primary-blue);
+    border-radius: 10px 10px 0 0;
+}
+
+.card-front h4 {
+    font-size: 24px;
+    margin: 20px 0 10px;
+    color: var(--primary-blue);
+    padding: 0 20px;
+}
+
+.card-front p {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.card-front .btn {
+    margin-top: auto;
+}
+
+.card-back {
+    background-color: var(--neutral-white);
+    color: var(--dark-text);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border: 2px solid var(--secondary-orange);
+}
+
+/* Estilos específicos para o conteúdo do verso */
+.card-back h5 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: var(--primary-blue);
+    font-size: 20px;
+}
+
+.card-back ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card-back ul li {
+    margin-bottom: 5px;
+    font-size: 15px;
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.card-back p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary-orange);
+    margin-top: auto;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 0;
+}
+
+.card-back .close-details-btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Seção Sobre Nós */
+.about-section {
+    background-color: var(--light-gray);
+    text-align: center;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* Seção de Contato (formulário de mensagem) */
+.contact-section {
+    background-color: var(--neutral-white);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: var(--light-gray);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--secondary-orange);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form .btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 15px;
+}
+
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-blue);
+    color: var(--neutral-white);
+    text-align: center;
+    padding: 25px 0; 
+    margin-top: 50px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 30px; 
+}
+
+.footer .container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%; 
+    padding: 0 20px; 
+    max-width: 1200px; 
+}
+
+.footer p {
+    font-size: 15px;
+    margin-top: 0; 
+}
+
+/* --- Estilos da Seção de Cadastro de Newsletter (DENTRO DO FOOTER) --- */
+.newsletter-section {
+    background-color: transparent; 
+    padding: 0; 
+    text-align: center;
+    width: 100%; 
+    max-width: 800px; 
+    margin-bottom: 0; 
+}
+
+.newsletter-section h3 {
+    font-size: 28px; 
+    margin-bottom: 25px; 
+    color: var(--neutral-white); 
+}
+
+.newsletter-section h3::after {
+    background-color: var(--secondary-orange); 
+}
+
+.newsletter-form {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1); 
+    
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    /* align-items: flex-end; REMOVIDO: Não precisamos disso sem label */
+    align-items: center; /* CENTRALIZAR os inputs horizontalmente se necessário */
+    gap: 20px; 
+    
+    box-shadow: none; 
+}
+
+/* **AJUSTES CRUCIAIS AQUI** */
+.newsletter-form .form-group {
+    flex: 1; 
+    min-width: 200px; /* Ajustado para dar mais flexibilidade */
+    margin-bottom: 0; 
+    /* REMOVIDAS as propriedades display: flex, align-items: center, gap */
+    /* Essas propriedades eram para alinhar a label e o input lado a lado,
+       mas como não há label, elas estavam causando espaçamento e desalinhamento. */
+    text-align: center; /* Centraliza o input dentro do seu próprio form-group */
+}
+
+/* **REMOVER OU ESCONDER A LABEL** */
+.newsletter-form label {
+    display: none; /* Garante que a label não apareça se for acidentalmente adicionada */
+    /* Você pode remover completamente este bloco se tiver certeza que as labels não voltarão */
+}
+
+.newsletter-form input[type="text"],
+.newsletter-form input[type="email"] {
+    flex-grow: 1; 
+    width: 100%; /* Garante que o input ocupe a largura total do seu form-group */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background-color: var(--neutral-white); 
+    color: var(--dark-text); 
+}
+
+/* Estilo para placeholder */
+.newsletter-form input::placeholder {
+    color: #888; /* Cor do texto do placeholder */
+    opacity: 0.8; /* Levemente transparente */
+}
+
+
+.newsletter-form input[type="text"]:focus,
+.newsletter-form input[type="email"]:focus {
+    border-color: var(--secondary-orange);
+    outline: none;
+}
+
+.newsletter-form .btn {
+    width: auto; 
+    padding: 12px 25px; 
+    font-size: 16px; 
+    margin-top: 0; 
+    flex-shrink: 0; 
+}
+
+/* --- Regras para Formas de Pagamento --- */
+.payment-methods {
+    width: 100%; 
+    max-width: 800px; 
+    text-align: center;
+    color: var(--neutral-white);
+    margin-top: 20px; 
+}
+
+.payment-methods h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--neutral-white);
+    position: relative;
+}
+
+/* Sublinhado para o título das formas de pagamento */
+.payment-methods h4::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px; 
+    height: 3px;
+    background-color: var(--secondary-orange);
+    border-radius: 2px;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 20px; 
+    margin-top: 30px; 
+}
+
+.payment-icons .fab,
+.payment-icons .fas {
+    font-size: 50px; 
+    color: rgba(255, 255, 255, 0.8); 
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.payment-icons .fab:hover,
+.payment-icons .fas:hover {
+    color: var(--secondary-orange); 
+    transform: translateY(-3px); 
+}
+
+
+/* Responsividade (Media Queries) */
+@media (max-width: 992px) {
+    .top-bar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .top-bar .contact-info,
+    .top-bar .social-media {
+        margin: 5px 0;
+        justify-content: center;
+    }
+    .top-bar .contact-info span {
+        margin: 0 5px;
+    }
+    .top-bar .social-media a {
+        margin: 0 5px;
+    }
+
+    .navbar nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--primary-blue);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    .navbar nav ul.active {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .navbar nav ul li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-section h2 {
+        font-size: 38px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+    }
+
+    section h3 {
+        font-size: 30px;
+    }
+
+    .destination-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    /* Footer: ajuste para telas menores se necessário */
+    .footer {
+        padding: 40px 0; 
+        gap: 20px;
+    }
+    .newsletter-section h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .payment-methods h4 {
+        font-size: 20px; 
+        margin-bottom: 15px;
+    }
+    .payment-icons {
+        gap: 15px; 
+        margin-top: 20px; 
+    }
+    .payment-icons .fab,
+    .payment-icons .fas {
+        font-size: 40px; 
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 100px 0;
+    }
+
+    .hero-section h2 {
+        font-size: 32px;
+    }
+
+    .hero-section p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    section h3 {
+        font-size: 26px;
+    }
+
+    .destination-grid {
+        justify-items: center;
+    }
+    .destination-card {
+        height: 400px;
+        width: 90%;
+        max-width: 350px;
+    }
+    .card-front h4 {
+        font-size: 20px;
+    }
+    .card-front p {
+        font-size: 15px;
+    }
+    .card-back h5 {
+        font-size: 18px;
+    }
+    .card-back ul li {
+        font-size: 14px;
+    }
+    .card-back p {
+        font-size: 15px;
+    }
+
+    .about-section p {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    /* Footer / Newsletter em telas menores */
+    .footer {
+        padding: 30px 0;
+    }
+    .newsletter-section h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    .newsletter-form {
+        padding: 15px;
+        gap: 15px;
+    }
+}
+
+/* Media query para a newsletter e pagamentos: Empilha os elementos em telas pequenas */
+@media (max-width: 650px) { 
+    .newsletter-form {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .newsletter-form .form-group {
+        /* Removidas as regras de alinhamento de label */
+        flex-direction: column; /* Manter se quiser que o input ocupe toda a largura verticalmente */
+        align-items: center; /* Centralizar input quando empilhado */
+        width: 100%; 
+        min-width: unset; 
+        gap: 0; /* Remove gap que existia com a label */
+    }
+    .newsletter-form label {
+        display: none; /* Garante que a label não apareça caso seja adicionada novamente por engano */
+    }
+    .newsletter-form input[type="text"],
+    .newsletter-form input[type="email"] {
+        width: 100%; 
+    }
+    .newsletter-form .btn {
+        width: 100%; 
+        max-width: 250px; 
+    }
+
+    /* Ajustes para os ícones de pagamento em telas menores */
+    .payment-methods h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .payment-icons {
+        gap: 10px; 
+    }
+    .payment-icons .fab,
+    .payment-icons .fas {
+        font-size: 35px; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    .top-bar {
+        font-size: 12px;
+    }
+    .top-bar .social-media a {
+        font-size: 16px;
+    }
+    .top-bar .contact-info span:nth-child(3) {
+        margin-right: 10px;
+        margin-left: 5px;
+    }
+
+    .navbar .logo {
+        font-size: 22px;
+    }
+
+    .hero-section h2 {
+        font-size: 28px;
+    }
+
+    .hero-section p {
+        font-size: 14px;
+    }
+
+    section h3 {
+        font-size: 22px;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-card {
+        height: 380px;
+        width: 95%;
+    }
+    .card-front img {
+        height: 180px;
+    }
+    .card-front h4 {
+        font-size: 18px;
+    }
+    
+    /* Footer / Newsletter em telas muito pequenas */
+    .footer {
+        padding: 20px 0;
+    }
+    .newsletter-form {
+        padding: 10px;
+    }
+    .newsletter-section h3 {
+        font-size: 20px;
+    }
+    .payment-methods h4 {
+        font-size: 16px;
+    }
+    .payment-icons {
+        gap: 8px; 
+    }
+    .payment-icons .fab,
+    .payment-icons .fas {
+        font-size: 30px; 
+    }
+}
+
+
+
+/* --- Seção de Festas (parties-section) --- */
+.parties-section {
+    background-color: var(--neutral-white);
+    padding: 80px 0;
+}
+
+.party-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.party-card {
+    background-color: var(--light-gray);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.party-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.party-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 5px solid var(--secondary-orange);
+}
+
+.party-card h4 {
+    font-size: 22px;
+    color: var(--primary-blue);
+    margin: 20px 20px 10px;
+    text-align: center;
+}
+
+.party-card p {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    flex-grow: 1; /* Permite que o parágrafo ocupe o espaço restante */
+}
+
+.party-card .btn {
+    margin: 0 20px 20px; /* Margem inferior e lateral para o botão */
+    width: calc(100% - 40px); /* Ocupa a largura total menos a margem */
+    text-align: center;
+    align-self: center; /* Centraliza o botão */
+}
+
+/* --- Seção de Feedback (feedback-section) --- */
+.feedback-section {
+    background-color: var(--primary-blue);
+    color: var(--neutral-white);
+    padding: 80px 0;
+    text-align: center;
+    position: relative; /* Para posicionar os botões de navegação */
+}
+
+.feedback-section h3 {
+    color: var(--neutral-white);
+    margin-bottom: 60px;
+}
+
+.feedback-carousel {
+    display: flex;
+    overflow: hidden; /* Esconde os feedbacks que não estão ativos */
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    height: 200px; /* Altura fixa para o carousel */
+}
+
+.feedback-card {
+    min-width: 100%; /* Cada card ocupa a largura total do carrossel */
+    padding: 30px;
+    background-color: var(--neutral-white);
+    color: var(--dark-text);
+    border-radius: 10px;
+    box-sizing: border-box; /* Garante que padding não aumente a largura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.5s ease; /* Transição para o slide */
+    position: absolute; /* Posicionamento absoluto para o slide */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.feedback-card.active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative; /* Ativa para que ocupe espaço */
+}
+
+.feedback-card p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.feedback-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--secondary-orange);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 860px; /* Ligeiramente maior que o carousel para os botões ficarem fora */
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    pointer-events: none; /* Permite clicar através para o conteúdo */
+}
+
+.carousel-nav button {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: var(--neutral-white);
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 10;
+    pointer-events: auto; /* Reativa o ponteiro para os botões */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-nav button:hover {
+    background-color: var(--secondary-orange);
+    transform: scale(1.05);
+}
+
+/* Responsividade para Festas e Feedback */
+@media (max-width: 992px) {
+    .party-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .feedback-carousel {
+        max-width: 600px;
+        height: 220px; /* Ajusta altura para telas menores */
+    }
+    .carousel-nav {
+        max-width: 660px;
+    }
+}
+
+@media (max-width: 768px) {
+    .parties-section {
+        padding: 60px 0;
+    }
+    .party-card {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    .party-grid {
+        grid-template-columns: 1fr; /* Empilha os cards em uma coluna */
+    }
+
+    .feedback-section {
+        padding: 60px 0;
+    }
+    .feedback-carousel {
+        max-width: 90%;
+        height: 250px; /* Mais altura para acomodar texto em telas pequenas */
+    }
+    .feedback-card p {
+        font-size: 16px;
+    }
+    .carousel-nav {
+        max-width: 95%;
+        padding: 0 10px;
+    }
+    .carousel-nav button {
+        font-size: 20px;
+        padding: 8px 12px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .party-card h4 {
+        font-size: 20px;
+    }
+    .party-card p {
+        font-size: 15px;
+    }
+
+    .feedback-section h3 {
+        font-size: 22px;
+    }
+    .feedback-carousel {
+        height: 280px; /* Ainda mais altura */
+    }
+    .feedback-card p {
+        font-size: 15px;
+    }
+    .feedback-card h4 {
+        font-size: 14px;
+    }
+    .carousel-nav button {
+        font-size: 18px;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+
+
+
+
+
+/* LOGO */
+/* Estilos para o logo no navbar */
+.navbar .logo {
+    display: flex; /* Permite alinhar a imagem e o texto */
+    align-items: center; /* Centraliza verticalmente os itens */
+    /* Remova qualquer altura ou largura fixa que possa ter aqui para o .logo */
+    font-size: 28px; /* Mantenha o tamanho da fonte do h1 */
+    color: var(--neutral-white); /* O texto do logo deve ser branco para contrastar com o azul do navbar */
+    text-decoration: none; /* Se o h1 for um link */
+}
+
+.navbar .logo span {
+    /* Este span é o container da imagem, podemos usá-lo para controle fino */
+    display: flex; /* Garante que a imagem se comporte bem dentro dele */
+    align-items: center; /* Centraliza a imagem se o span tiver mais altura */
+    margin-right: 10px; /* Espaço entre o logo e o texto do h1 */
+}
+
+.navbar .logo img {
+    height: 30px; /* Altura da imagem do logo - ajuste conforme a proporção do seu logo */
+    width: auto; /* Mantém a proporção original da imagem */
+    /* vertical-align: middle; -- Removido, pois display: flex no pai já cuida disso */
+}
+
+/* Opcional: Ajuste para o link do logo se ele for clicável */
+.navbar .logo a {
+    text-decoration: none;
+    color: inherit; /* Herda a cor do h1.logo */
+    display: flex; /* Para que o link se comporte como o h1.logo */
+    align-items: center;
+}
