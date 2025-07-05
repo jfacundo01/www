@@ -1,47 +1,99 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Lógica do Menu Responsivo ---
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.navbar nav ul');
+    const contactForm = document.querySelector('.contact-form');
+    
+    // --- Funcionalidade do Menu Hambúrguer ---
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
 
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active'); // Para animar o ícone do menu
-        });
-
-        // Fechar o menu ao clicar em um link (apenas em mobile)
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 992) { // Ajuste este breakpoint conforme seu CSS
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                }
-            });
-        });
-    }
-
-    // --- Lógica do Flip Card para Destinos ---
-    const packageDetailsToggles = document.querySelectorAll('.package-details-toggle');
-    const closeDetailsBtns = document.querySelectorAll('.close-details-btn');
-
-    packageDetailsToggles.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault(); // Impede o comportamento padrão do link
-            const cardInner = button.closest('.destination-card').querySelector('.card-inner');
-            const destinationCard = button.closest('.destination-card');
-            
-            // Adiciona a classe 'active' para virar o card e aplicar sombra
-            destinationCard.classList.add('active');
+    // Fechar o menu ao clicar em um link (melhora a UX em mobile)
+    document.querySelectorAll('.navbar nav ul li a').forEach(item => {
+        item.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
         });
     });
 
-    closeDetailsBtns.forEach(button => {
-        button.addEventListener('click', () => {
-            const cardInner = button.closest('.destination-card').querySelector('.card-inner');
-            const destinationCard = button.closest('.destination-card');
+    // --- Validação do Formulário de Contato ---
+    if (contactForm) { // Verifica se o formulário existe na página
+        contactForm.addEventListener('submit', function(event) {
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            let isValid = true;
+
+            // Validação do campo Nome
+            if (nameInput.value.trim() === '') {
+                alert('Por favor, preencha o seu nome.');
+                nameInput.focus();
+                isValid = false;
+            } 
+            // Validação do campo Email (simples, apenas verifica se está vazio e formato básico)
+            else if (emailInput.value.trim() === '') {
+                alert('Por favor, preencha o seu email.');
+                emailInput.focus();
+                isValid = false;
+            } else if (!emailInput.value.includes('@') || !emailInput.value.includes('.')) {
+                alert('Por favor, insira um email válido.');
+                emailInput.focus();
+                isValid = false;
+            }
+            // Validação do campo Mensagem
+            else if (messageInput.value.trim() === '') {
+                alert('Por favor, escreva sua mensagem.');
+                messageInput.focus();
+                isValid = false;
+            }
+
+            if (!isValid) {
+                event.preventDefault(); // Impede o envio do formulário se a validação falhar
+            } else {
+                // Se a validação passar, você pode enviar o formulário aqui (AJAX, fetch, etc.)
+                alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
+                contactForm.reset(); // Limpa o formulário
+                event.preventDefault(); // Impede o envio real do formulário (para demonstração)
+            }
+        });
+    }
+
+    // --- Funcionalidade: Detalhes do Pacote (Flip Card) ---
+    const packageDetailsToggles = document.querySelectorAll('.package-details-toggle');
+    const closeDetailsButtons = document.querySelectorAll('.close-details-btn');
+
+    packageDetailsToggles.forEach(toggleButton => {
+        toggleButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Impede o comportamento padrão do link (#)
+            const card = this.closest('.destination-card'); // Encontra o card pai (o que foi clicado)
             
-            // Remove a classe 'active' para desvirar o card e remover sombra
-            destinationCard.classList.remove('active');
+            // Primeiro, vamos FECHAR todos os outros cards que estejam virados
+            document.querySelectorAll('.destination-card').forEach(otherCard => {
+                // Se o outro card estiver ativo (virado) e não for o card clicado
+                if (otherCard !== card && otherCard.classList.contains('active')) {
+                    otherCard.classList.remove('active'); // Desvira o outro card
+                }
+            });
+
+            // Agora, alterna a classe 'active' no cartão CLICADO
+            // Isso fará com que o .card-inner dentro dele vire/desvire via CSS
+            card.classList.toggle('active'); 
+            
+            // Opcional: Rola para o cartão para que o usuário veja os detalhes quando ele se abre
+            if (card.classList.contains('active')) { // Se o card estiver ativo (virado)
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    });
+
+    closeDetailsButtons.forEach(closeButton => {
+        closeButton.addEventListener('click', function() {
+            const card = this.closest('.destination-card'); // Encontra o cartão pai
+            if (card) {
+                card.classList.remove('active'); // Garante que a classe 'active' é removida ao fechar
+            }
         });
     });
 
@@ -107,5 +159,4 @@ document.addEventListener('DOMContentLoaded', () => {
             autoSlideInterval = setInterval(nextFeedback, 7000);
         });
     }
-
 });
