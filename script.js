@@ -113,22 +113,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Função para rolar o carrossel
         function scrollGallery(direction) {
-            const itemWidth = galleryItems[0].offsetWidth + 20; // Largura do item + gap
+            // Recalcula a largura do item ao rolar para garantir precisão após redimensionamento
+            // 20px é o gap definido no CSS
+            const itemWidth = galleryItems[0].offsetWidth + 20; 
             let scrollAmount;
 
             if (direction === 'next') {
                 scrollAmount = itemWidth * itemsPerView;
-                // Previne rolagem excessiva no final
+                // Previne rolagem excessiva no final, voltando ao início
                 if (galleryCarousel.scrollLeft + galleryCarousel.offsetWidth + 1 >= galleryCarousel.scrollWidth) {
-                    galleryCarousel.scrollLeft = 0; // Volta para o início se estiver no final
+                    galleryCarousel.scrollLeft = 0; 
                 } else {
                     galleryCarousel.scrollLeft += scrollAmount;
                 }
             } else if (direction === 'prev') {
                 scrollAmount = itemWidth * itemsPerView;
-                // Previne rolagem excessiva no início
+                // Previne rolagem excessiva no início, indo para o final
                 if (galleryCarousel.scrollLeft <= 1) {
-                    galleryCarousel.scrollLeft = galleryCarousel.scrollWidth - galleryCarousel.offsetWidth; // Vai para o final
+                    galleryCarousel.scrollLeft = galleryCarousel.scrollWidth - galleryCarousel.offsetWidth; 
                 } else {
                     galleryCarousel.scrollLeft -= scrollAmount;
                 }
