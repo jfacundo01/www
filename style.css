@@ -43,9 +43,7 @@ a {
     color: var(--primary-blue);
     transition: color 0.3s ease;
 }
-h2{
-    color:var(--secondary-orange) ;
-}
+
 a:hover {
     color: var(--secondary-orange);
 }
@@ -514,12 +512,6 @@ section h3::after {
     flex-direction: column;
     padding-bottom: 20px;
 }
-.destination-card .card-back p {
-    font-size: 24px;
-    padding: 0 20px;
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
 
 .destination-card .card-front {
     background-color: var(--neutral-white);
@@ -596,7 +588,7 @@ section h3::after {
 }
 
 .destination-card .card-back p {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--secondary-orange);
     margin-top: auto;
@@ -877,52 +869,54 @@ section h3::after {
 /* --- Seção de Galeria (gallery-section) --- */
 .gallery-section {
     background-color: var(--neutral-white);
-    /* Fundo branco para contraste */
     padding: 80px 0;
     text-align: center;
 }
 
-.gallery-grid {
-    display: grid;
-    /* Alterado para Grid */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    /* Layout responsivo com 3 colunas padrão */
-    gap: 20px;
-    /* Espaçamento entre as imagens */
-    justify-content: center;
-    /* Centraliza os itens na grade */
-    align-items: center;
-    /* Centraliza verticalmente os itens na grade */
+.gallery-carousel-wrapper {
+    position: relative;
+    max-width: 1200px; /* Mesma largura do container para alinhamento */
     margin: 40px auto;
-    /* Margem para o grid e centralização */
-    max-width: 1200px;
-    /* Limita a largura do grid */
-    padding: 0 10px;
-    /* Pequeno padding para telas menores */
+    padding: 0 20px; /* Permite que o wrapper se ajuste, mas não ultrapasse o container */
+    box-sizing: border-box;
 }
 
-.gallery-grid img.zoom-image {
+.gallery-carousel {
+    display: flex;
+    overflow: hidden; /* Esconde as imagens que estão fora da visualização */
+    scroll-behavior: smooth; /* Rolagem suave ao navegar */
+    -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos iOS */
+    padding-bottom: 20px; /* Para as sombras dos itens */
+    gap: 20px; /* Espaçamento entre as imagens no carrossel */
+}
+
+.gallery-item {
+    flex: 0 0 calc(33.333% - 13.333px); /* 3 imagens por linha, com gap de 20px */
+    /* (20px * 2 (gaps) / 3 itens = 13.333px) */
+    max-width: calc(33.333% - 13.333px);
     width: 100%;
-    /* Garante que a imagem preencha a célula do grid */
-    height: 200px;
-    /* Altura fixa para as imagens */
+    height: 250px; /* Altura fixa para as imagens */
     object-fit: cover;
-    /* Garante que a imagem preencha o espaço sem distorcer */
-    display: block;
-    /* Remove espaço extra abaixo da imagem */
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease-in-out;
-    /* Suaviza o efeito de zoom */
-    cursor: zoom-in;
-    /* Indica que a imagem pode ter algum tipo de interação */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
-/* Aplica o zoom diretamente na imagem ao passar o mouse sobre ela */
-.gallery-grid img.zoom-image:hover {
-    transform: scale(1.05);
-    /* Aplica um zoom menor de 5% na imagem */
+.gallery-item:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* Estilos de navegação da galeria (compartilhados com feedback) */
+.gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px; /* Espaço entre o carrossel e os botões */
+}
+
+/* Os estilos para .carousel-nav button já são globais, então eles se aplicarão aqui também */
 
 /* --- Footer --- */
 .footer {
@@ -1180,15 +1174,11 @@ section h3::after {
         gap: 20px;
     }
 
-    /* Galeria em telas menores: ajusta para 2 colunas */
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        /* 2 colunas */
-    }
-
-    .gallery-grid img.zoom-image {
-        height: 180px;
-        /* Ajusta a altura também */
+    /* Galeria em telas menores: ajusta para 2 imagens por vez */
+    .gallery-item {
+        flex: 0 0 calc(50% - 10px); /* 2 imagens por linha, com gap de 20px */
+        max-width: calc(50% - 10px);
+        height: 200px;
     }
 }
 
@@ -1290,6 +1280,10 @@ section h3::after {
         font-size: 16px;
     }
 
+    .feedback-card h4 {
+        font-size: 16px;
+    }
+
     .carousel-nav {
         max-width: 90%;
         padding: 0 10px;
@@ -1302,17 +1296,11 @@ section h3::after {
         height: 40px;
     }
 
-    /* Galeria em telas menores: ajusta para 1 coluna */
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        /* 1 coluna */
-    }
-
-    .gallery-grid img.zoom-image {
-        max-width: 90%;
-        /* Ocupa quase toda a largura para uma única coluna */
-        height: 200px;
-        /* Mantém a altura fixa */
+    /* Galeria em telas menores: 1 imagem por vez */
+    .gallery-item {
+        flex: 0 0 100%; /* 1 imagem por linha */
+        max-width: 100%;
+        height: 220px;
     }
 }
 
@@ -1451,11 +1439,8 @@ section h3::after {
         height: 35px;
     }
 
-    /* Galeria em telas menores: */
-    .gallery-grid img.zoom-image {
-        max-width: 95%;
-        /* Ajusta para ocupar quase toda a largura */
+    /* Galeria em telas muito pequenas: ajusta para 1 imagem por vez */
+    .gallery-item {
         height: 180px;
-        /* Mantém a altura fixa */
     }
 }
