@@ -561,6 +561,7 @@ section h3::after {
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+    border: 2px solid var(--secondary-orange);
 }
 
 /* Estilos específicos para o conteúdo do verso dos cards de destino */
