@@ -44,6 +44,10 @@ a {
     transition: color 0.3s ease;
 }
 
+h2{
+    color: var(--secondary-orange);
+}
+
 a:hover {
     color: var(--secondary-orange);
 }
