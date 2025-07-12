@@ -293,7 +293,7 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    z-index: 999;
+    z-index: 9999;
     /* Abaixo do menu-toggle */
     transform: translateX(-100%);
     /* Esconde fora da tela */
