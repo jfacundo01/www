@@ -1,19 +1,12 @@
 /* Variáveis de Cores */
 :root {
-    --primary-blue: #163599;
-    /* Azul vibrante */
-    --secondary-orange: #ff7f00;
-    /* Laranja chamativo */
-    --neutral-white: #ffffff;
-    /* Branco puro */
-    --light-gray: #f8f9fa;
-    /* Cinza claro para fundos */
-    --dark-text: #343a40;
-    /* Texto escuro */
-    --darker-blue: #0d2856;
-    /* Azul mais escuro para a top bar e footer */
-    --accent-yellow: #FFD700;
-    /* Amarelo de destaque (opcional, para botões de reserva) */
+    --primary-blue: #163599; /* Azul vibrante */
+    --secondary-orange: #ff7f00; /* Laranja chamativo */
+    --neutral-white: #ffffff; /* Branco puro */
+    --light-gray: #f8f9fa; /* Cinza claro para fundos */
+    --dark-text: #343a40; /* Texto escuro */
+    --darker-blue: #0d2856; /* Azul mais escuro para a top bar e footer */
+    --accent-yellow: #FFD700; /* Amarelo de destaque (opcional, para botões de reserva) */
 }
 
 /* Reset Básico e Fontes */
@@ -28,8 +21,13 @@ body {
     line-height: 1.6;
     color: var(--dark-text);
     background-color: var(--light-gray);
-    scroll-behavior: smooth;
-    /* Rolagem suave para âncoras */
+    scroll-behavior: smooth; /* Rolagem suave para âncoras */
+}
+
+/* Estilos para desativar o scroll do body quando o menu mobile está aberto */
+body.no-scroll {
+    overflow: hidden;
+    /* Impede o scroll no body */
 }
 
 .container {
@@ -44,7 +42,7 @@ a {
     transition: color 0.3s ease;
 }
 
-h2{
+h2 {
     color: var(--secondary-orange);
 }
 
@@ -117,7 +115,6 @@ ul {
     color: var(--secondary-orange);
 }
 
-
 /* Botões */
 .btn {
     display: inline-block;
@@ -127,8 +124,7 @@ ul {
     transition: all 0.3s ease;
     cursor: pointer;
     text-align: center;
-    white-space: nowrap;
-    /* Evita quebra de linha em texto de botão */
+    white-space: nowrap; /* Evita quebra de linha em texto de botão */
 }
 
 .primary-btn {
@@ -138,18 +134,14 @@ ul {
 }
 
 .primary-btn:hover {
-    background-color: var(--accent-yellow);
-    /* Usa a variável de amarelo */
+    background-color: var(--accent-yellow); /* Usa a variável de amarelo */
     border-color: var(--accent-yellow);
-    color: var(--dark-text);
-    /* Texto escuro para melhor contraste no amarelo */
+    color: var(--dark-text); /* Texto escuro para melhor contraste no amarelo */
 }
 
 .secondary-btn {
-    background-color: transparent;
-    /* Alterado para transparente */
-    color: var(--primary-blue);
-    /* Cor do texto azul primário */
+    background-color: transparent; /* Alterado para transparente */
+    color: var(--primary-blue); /* Cor do texto azul primário */
     border: 2px solid var(--primary-blue);
 }
 
@@ -182,8 +174,7 @@ ul {
     font-size: 28px;
     color: var(--neutral-white);
     text-decoration: none;
-    font-weight: 700;
-    /* Torna o texto do logo mais bold */
+    font-weight: 700; /* Torna o texto do logo mais bold */
 }
 
 .navbar .logo span {
@@ -199,8 +190,7 @@ ul {
 
 .navbar nav ul {
     display: flex;
-    list-style: none;
-    /* Garante que não tenha marcadores */
+    list-style: none; /* Garante que não tenha marcadores */
 }
 
 .navbar nav ul li {
@@ -213,8 +203,7 @@ ul {
     padding: 5px 0;
     transition: color 0.3s ease;
     position: relative;
-    font-size: 17px;
-    /* Tamanho da fonte dos links da navbar */
+    font-size: 17px; /* Tamanho da fonte dos links da navbar */
 }
 
 .navbar nav ul li a::after {
@@ -240,15 +229,13 @@ ul {
 
 /* Menu Toggle para Mobile (Burger Menu) */
 .menu-toggle {
-    display: none;
-    /* Escondido por padrão em desktop */
+    display: none; /* Escondido por padrão em desktop */
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
     position: relative;
-    z-index: 1001;
-    /* Acima do nav-menu-mobile */
+    z-index: 1001; /* Acima do nav-menu-mobile */
 }
 
 .menu-toggle .bar {
@@ -276,35 +263,32 @@ ul {
 
 .mobile-nav-menu {
     /* Nome da classe mais descritivo */
-    display: none;
-    /* Escondido por padrão */
     position: fixed;
-    top: 0;
-    /* Começa no topo */
-    left: 0;
-    /* Começa escondido à esquerda */
+    top: 0; /* Começa no topo */
+    left: 0; /* Começa escondido à esquerda */
     width: 100%;
     height: 100%;
-    background-color: rgba(22, 53, 153, 0.95);
-    /* Azul primário semitransparente */
+    /* Ajuste para usar a variável e garantir consistência */
+    background-color: var(--primary-blue);
+    /* Se quiser semi-transparente, use: background-color: rgba(var(--primary-blue-rgb), 0.95); */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
-    z-index: 9999;
-    /* Abaixo do menu-toggle */
-    transform: translateX(-100%);
-    /* Esconde fora da tela */
+    z-index: 9999; /* Abaixo do menu-toggle */
+    transform: translateX(-100%); /* Esconde fora da tela */
     transition: transform 0.4s ease-in-out;
-    overflow-y: auto;
-    /* Para rolagem se o conteúdo for grande */
+    overflow-y: auto; /* Para rolagem se o conteúdo for grande */
+    visibility: hidden; /* Oculta o menu para interações quando não está aberto */
+    pointer-events: none; /* Permite clicar através quando hidden */
 }
 
 .mobile-nav-menu.open {
-    transform: translateX(0);
-    /* Mostra na tela */
+    transform: translateX(0); /* Mostra na tela */
+    visibility: visible; /* Torna visível */
+    pointer-events: auto; /* Permite interações */
 }
 
 .mobile-nav-menu .nav-item {
@@ -328,8 +312,7 @@ ul {
     background: url('images/image01.jpeg') no-repeat center center/cover;
     color: var(--neutral-white);
     text-align: center;
-    padding: 150px 0;
-    /* Ajuste para compensar o header fixo */
+    padding: 150px 0; /* Ajuste para compensar o header fixo */
     min-height: 500px;
     display: flex;
     align-items: center;
@@ -359,16 +342,14 @@ ul {
     margin-bottom: 20px;
     font-weight: 600;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    color: var(--neutral-white);
-    /* Garante que o H2 do hero seja branco */
+    color: var(--neutral-white); /* Garante que o H2 do hero seja branco */
 }
 
 .hero-section p {
     font-size: 20px;
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    color: var(--neutral-white);
-    /* Garante que o P do hero seja branco */
+    color: var(--neutral-white); /* Garante que o P do hero seja branco */
 }
 
 .hero-section .btn {
@@ -386,8 +367,7 @@ section h3 {
     margin-bottom: 50px;
     color: var(--primary-blue);
     position: relative;
-    font-weight: 700;
-    /* Adicionado para consistência */
+    font-weight: 700; /* Adicionado para consistência */
 }
 
 section h3::after {
@@ -424,10 +404,8 @@ section h3::after {
 }
 
 .about-text h3 {
-    text-align: left;
-    /* Alinha o título à esquerda dentro do container de texto */
-    margin-left: 0;
-    /* Garante que não tenha margem extra */
+    text-align: left; /* Alinha o título à esquerda dentro do container de texto */
+    margin-left: 0; /* Garante que não tenha margem extra */
     margin-bottom: 20px;
 }
 
@@ -475,7 +453,7 @@ section h3::after {
     position: relative;
     height: 450px;
     perspective: 1000px;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease; /* Keep box-shadow transition */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -485,7 +463,6 @@ section h3::after {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Removido o transform no .active para evitar pular */
 .destination-card.active {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
@@ -518,8 +495,7 @@ section h3::after {
 }
 
 .destination-card .card-front {
-    background-color: var(--neutral-white);
-    /* Fundo da frente */
+    background-color: var(--neutral-white); /* Fundo da frente */
     color: var(--dark-text);
 }
 
@@ -553,8 +529,7 @@ section h3::after {
 }
 
 .destination-card .card-back {
-    background-color: var(--primary-blue);
-    /* Fundo do verso */
+    background-color: var(--primary-blue); /* Fundo do verso */
     color: var(--neutral-white);
     transform: rotateY(180deg);
     display: flex;
@@ -588,8 +563,7 @@ section h3::after {
     font-size: 15px;
     list-style: disc;
     margin-left: 20px;
-    color: var(--neutral-white);
-    /* Cor para os itens da lista no verso */
+    color: var(--neutral-white); /* Cor para os itens da lista no verso */
 }
 
 .destination-card .card-back p {
@@ -610,8 +584,7 @@ section h3::after {
 
 /* --- Seção de Festas (parties-section) --- */
 .parties-section {
-    background-color: var(--light-gray);
-    /* Alterado para light-gray para contraste com destinos */
+    background-color: var(--light-gray); /* Alterado para light-gray para contraste com destinos */
 }
 
 .party-grid {
@@ -624,8 +597,7 @@ section h3::after {
 /* --- Estilos para o Efeito de Virar (Flip Card) - FESTAS --- */
 .party-card {
     position: relative;
-    height: 450px;
-    /* Mesma altura dos cards de destino */
+    height: 450px; /* Mesma altura dos cards de destino */
     perspective: 1000px;
     transition: box-shadow 0.3s ease;
     border-radius: 10px;
@@ -669,8 +641,7 @@ section h3::after {
 }
 
 .party-card .card-front {
-    background-color: var(--neutral-white);
-    /* Fundo da frente */
+    background-color: var(--neutral-white); /* Fundo da frente */
     color: var(--dark-text);
 }
 
@@ -679,8 +650,7 @@ section h3::after {
     height: 200px;
     object-fit: cover;
     display: block;
-    border-bottom: 5px solid var(--secondary-orange);
-    /* Borda laranja para festas */
+    border-bottom: 5px solid var(--secondary-orange); /* Borda laranja para festas */
     border-radius: 10px 10px 0 0;
 }
 
@@ -705,16 +675,14 @@ section h3::after {
 }
 
 .party-card .card-back {
-    background-color: var(--primary-blue);
-    /* Fundo do verso (pode ser diferente do destino se quiser) */
+    background-color: var(--primary-blue); /* Fundo do verso (pode ser diferente do destino se quiser) */
     color: var(--neutral-white);
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    border: 2px solid var(--secondary-orange);
-    /* Borda laranja no verso */
+    border: 2px solid var(--secondary-orange); /* Borda laranja no verso */
 }
 
 /* Estilos específicos para o conteúdo do verso dos cards de festa */
@@ -741,15 +709,13 @@ section h3::after {
     font-size: 15px;
     list-style: disc;
     margin-left: 20px;
-    color: var(--neutral-white);
-    /* Cor para os itens da lista no verso */
+    color: var(--neutral-white); /* Cor para os itens da lista no verso */
 }
 
 .party-card .card-back p {
     font-size: 16px;
     font-weight: 600;
-    color: var(--accent-yellow);
-    /* Destaque o preço com amarelo ou laranja */
+    color: var(--accent-yellow); /* Destaque o preço com amarelo ou laranja */
     margin-top: auto;
     margin-bottom: 15px;
     text-align: center;
@@ -817,8 +783,7 @@ section h3::after {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    position: relative;
-    /* Ajuste para que o card ativo ocupe o fluxo */
+    position: relative; /* Ajuste para que o card ativo ocupe o fluxo */
 }
 
 .feedback-card p {
@@ -888,17 +853,16 @@ section h3::after {
 
 .gallery-carousel {
     display: flex;
-    overflow: hidden; /* Esconde as imagens que estão fora da visualização */
-    scroll-behavior: smooth; /* Rolagem suave ao navegar */
+    overflow-x: auto; /* Permite rolagem horizontal */
     -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos iOS */
     padding-bottom: 20px; /* Para as sombras dos itens */
     gap: 20px; /* Espaçamento entre as imagens no carrossel */
+    scroll-snap-type: x mandatory; /* Para que o scroll pare em cada item */
 }
 
 .gallery-item {
     flex: 0 0 calc(33.333% - 13.333px); /* 3 imagens por linha, com gap de 20px */
-    /* (20px * 2 (gaps) / 3 itens = 13.333px) */
-    max-width: calc(33.333% - 13.333px);
+    scroll-snap-align: start; /* Alinha o início do item ao início do container de rolagem */
     width: 100%;
     height: 250px; /* Altura fixa para as imagens */
     object-fit: cover;
@@ -925,8 +889,7 @@ section h3::after {
 
 /* --- Footer --- */
 .footer {
-    background-color: var(--darker-blue);
-    /* Usando darker-blue para o footer */
+    background-color: var(--darker-blue); /* Usando darker-blue para o footer */
     color: var(--neutral-white);
     text-align: center;
     padding: 25px 0;
@@ -949,8 +912,7 @@ section h3::after {
 .footer p {
     font-size: 15px;
     margin-top: 0;
-    color: var(--neutral-white);
-    /* Garante que o texto do footer seja branco */
+    color: var(--neutral-white); /* Garante que o texto do footer seja branco */
 }
 
 /* --- Estilos da Seção de Cadastro de Newsletter (DENTRO DO FOOTER) --- */
@@ -1046,8 +1008,7 @@ section h3::after {
     margin-bottom: 20px;
     color: var(--neutral-white);
     position: relative;
-    font-weight: 600;
-    /* Mais bold para o título de pagamento */
+    font-weight: 600; /* Mais bold para o título de pagamento */
 }
 
 .payment-methods h4::after {
@@ -1106,13 +1067,11 @@ section h3::after {
     }
 
     .navbar nav ul {
-        display: none;
-        /* Esconde o menu de desktop */
+        display: none; /* Esconde o menu de desktop */
     }
 
     .menu-toggle {
-        display: block;
-        /* Mostra o burger menu */
+        display: block; /* Mostra o burger menu */
     }
 
     .hero-section h2 {
@@ -1138,8 +1097,7 @@ section h3::after {
     }
 
     .about-text {
-        padding: 0 15px;
-        /* Adiciona padding para texto em telas menores */
+        padding: 0 15px; /* Adiciona padding para texto em telas menores */
     }
 
     /* Footer: ajuste para telas menores se necessário */
@@ -1182,7 +1140,7 @@ section h3::after {
     /* Galeria em telas menores: ajusta para 2 imagens por vez */
     .gallery-item {
         flex: 0 0 calc(50% - 10px); /* 2 imagens por linha, com gap de 20px */
-        max-width: calc(50% - 10px);
+        scroll-snap-align: start;
         height: 200px;
     }
 }
@@ -1211,16 +1169,14 @@ section h3::after {
     .destination-grid,
     .party-grid {
         justify-items: center;
-        grid-template-columns: 1fr;
-        /* Uma coluna em telas menores */
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
     }
 
     .destination-card,
     .party-card {
         width: 90%;
         max-width: 350px;
-        margin: 0 auto;
-        /* Centraliza a coluna única */
+        margin: 0 auto; /* Centraliza a coluna única */
     }
 
     .destination-card,
@@ -1304,7 +1260,7 @@ section h3::after {
     /* Galeria em telas menores: 1 imagem por vez */
     .gallery-item {
         flex: 0 0 100%; /* 1 imagem por linha */
-        max-width: 100%;
+        scroll-snap-align: start;
         height: 220px;
     }
 }
@@ -1449,4 +1405,3 @@ section h3::after {
         height: 180px;
     }
 }
-
