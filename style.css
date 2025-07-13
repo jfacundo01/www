@@ -853,11 +853,21 @@ section h3::after {
 
 .gallery-carousel {
     display: flex;
-    overflow-x: auto; /* Permite rolagem horizontal */
+    overflow-x: auto; /* Mantém a funcionalidade de rolagem */
     -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos iOS */
     padding-bottom: 20px; /* Para as sombras dos itens */
     gap: 20px; /* Espaçamento entre as imagens no carrossel */
     scroll-snap-type: x mandatory; /* Para que o scroll pare em cada item */
+    scroll-behavior: smooth; /* Adiciona rolagem suave para a transição */
+
+    /* --- Oculta a barra de rolagem --- */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer e Edge legado */
+}
+
+/* Para WebKit (Chrome, Safari, Edge moderno) */
+.gallery-carousel::-webkit-scrollbar {
+    display: none; /* Oculta completamente a barra de rolagem */
 }
 
 .gallery-item {
@@ -868,13 +878,23 @@ section h3::after {
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.2s ease; /* Adicionada transição de opacity */
     cursor: pointer;
+    opacity: 0.9; /* Leve efeito de "desfocado" quando não ativo */
 }
 
-.gallery-item:hover {
-    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+.gallery-item:hover,
+.gallery-item:focus {
+    transform: translateY(-5px) scale(1.05); /* Efeito de elevação e leve zoom */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    opacity: 1; /* Foco total no item interativo */
+    outline: none; /* Remove a borda de foco padrão para substituir por um estilo visual */
+}
+
+.gallery-item:active {
+    transform: translateY(0) scale(1); /* Retorna ao tamanho normal ao clicar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 1;
 }
 
 /* Estilos de navegação da galeria (compartilhados com feedback) */
@@ -885,6 +905,38 @@ section h3::after {
     margin-top: 30px; /* Espaço entre o carrossel e os botões */
 }
 
+.gallery-nav button {
+    background-color: var(--secondary-orange);
+    border: none;
+    color: var(--neutral-white);
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Adicionada transição de box-shadow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-nav button:hover {
+    background-color: var(--accent-yellow); /* Cor de destaque ao passar o mouse */
+    transform: scale(1.1); /* Leve aumento ao passar o mouse */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-nav button:focus {
+    outline: none; /* Remove a borda de foco padrão */
+    box-shadow: 0 0 0 3px var(--primary-blue); /* Adiciona um foco visual */
+}
+
+.gallery-nav button:active {
+    transform: scale(1); /* Retorna ao tamanho normal ao clicar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
 /* Os estilos para .carousel-nav button já são globais, então eles se aplicarão aqui também */
 
 /* --- Footer --- */
